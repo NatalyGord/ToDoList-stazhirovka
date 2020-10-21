@@ -1,44 +1,58 @@
 package com.example.todolist.entity;
 
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDate;
 
 /**
  * Класс дела
  */
 public class Tasks {
+
+    @Id
     private int taskId;
+
     private String name;
+
     private String description;
+
     private int priority;    // от 1 до 5
+
     private int markDone;    //1- сделано, 0 - нет
+
     private LocalDate taskCreated;
+
     private LocalDate taskChange;
 
     public Tasks(String name) {
         this.name = name;
-        this.taskCreated = LocalDate.now();
-        this.markDone = 0;
+        taskCreated = LocalDate.now();
+        markDone = 0;
     }
-    public Tasks(String name, String description){
+
+    public Tasks(String name, String description) {
         this.name = name;
         this.description = description;
-        this.taskCreated = LocalDate.now();
-        this.markDone = 0;
+        taskCreated = LocalDate.now();
+        markDone = 0;
     }
-    public Tasks(String name, String description, int priority){
+
+    public Tasks(String name, String description, int priority) {
         this.name = name;
         this.description = description;
         this.priority = priority;
-        this.taskCreated = LocalDate.now();
-        this.markDone = 0;
+        taskCreated = LocalDate.now();
+        markDone = 0;
     }
+
+    @javax.persistence.Id
     public int getTaskId() {
         return this.taskId;
     }
 
-//    public void setTaskId(int taskId) {
-//        this.taskId = taskId;
-//    }
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
+    }
 
     public String getName() {
         return this.name;
@@ -75,16 +89,16 @@ public class Tasks {
     public LocalDate getTaskCreated() {
         return this.taskCreated;
     }
-//
-//    public void setTaskCreated(LocalDate taskCreated) {
-//        this.taskCreated = taskCreated;
-//    }
+
+    public void setTaskCreated(LocalDate taskCreated) {
+        this.taskCreated = taskCreated;
+    }
 
     public LocalDate getTaskChange() {
         return this.taskChange;
     }
-//
-//    public void setTaskChange(LocalDate taskChange) {
-//        this.taskChange = taskChange;
-//    }
+
+    public void setTaskChange(LocalDate taskChange) {
+        this.taskChange = taskChange;
+    }
 }
