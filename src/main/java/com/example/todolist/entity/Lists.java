@@ -1,18 +1,22 @@
 package com.example.todolist.entity;
 
+import lombok.Data;
+import org.hibernate.annotations.Table;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import java.time.LocalDate;
+import java.util.UUID;
 
 /**
  * Класс Списки дел
  */
 @Entity
+@Data
 public class Lists {
 
     @Id
-    private int listId;
+    private UUID listId;
 
     private String name;
 
@@ -31,11 +35,11 @@ public class Lists {
     }
 
     @javax.persistence.Id
-    public int getListId() {
+    public UUID getListId() {
         return listId;
     }
 
-    public void setListId(int listId) {
+    public void setListId(UUID listId) {
         this.listId = listId;
     }
 

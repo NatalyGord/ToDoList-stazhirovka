@@ -1,16 +1,21 @@
 package com.example.todolist.entity;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
+import java.util.UUID;
 
 /**
  * Класс дела
  */
+@Entity
+@Data
 public class Tasks {
 
     @Id
-    private int taskId;
+    private UUID taskId;
 
     private String name;
 
@@ -23,6 +28,8 @@ public class Tasks {
     private LocalDate taskCreated;
 
     private LocalDate taskChange;
+
+    private UUID listId;
 
     public Tasks(String name) {
         this.name = name;
@@ -45,12 +52,15 @@ public class Tasks {
         markDone = 0;
     }
 
+    public Tasks() {
+    }
+
     @javax.persistence.Id
-    public int getTaskId() {
+    public UUID getTaskId() {
         return this.taskId;
     }
 
-    public void setTaskId(int taskId) {
+    public void setTaskId(UUID taskId) {
         this.taskId = taskId;
     }
 
